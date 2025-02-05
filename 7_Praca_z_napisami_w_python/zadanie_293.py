@@ -1,4 +1,4 @@
-"""Zadanie 293
+"""
 
 Palindromem nazywamy słowo, które czytane od lewej i od prawej strony jest takie samo. Na przykład palindromami są słowa:
 JABFDFBAJ
