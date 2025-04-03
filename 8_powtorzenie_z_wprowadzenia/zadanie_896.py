@@ -1,3 +1,28 @@
-"""W pliku godziny_pracy.txt znajdują się informacje o czasie przybycia i opuszczenia miejsca pracy pewnego pracownika w kolejnych 100 dniach  Każda linijka pliku składa się z godziny przybycia i godziny opuszczenia. Przykład: 8:45 15:55
-W pliku jest 100 dat. Oblicz ile godzin pracy wykonał w tym czasie pracownik. Podaj wynik w postaci liczby z kropką dziesiętną zaokrągloną do dwóch miejsc po przecinku np. 121.45
-Uwaga: Pracownicy zawsze kończą pracę przed północą"""
+with open('godziny_pracy.txt') as f:
+    czasStr = [x.split() for x in f.readlines()]
+
+    f.close()
+    print(czasStr)
+
+
+def czas(godz):
+    strG, strM = godz.split(':')
+    g = int(strG)
+    m = int(strM)
+    return g + m / 60
+
+
+praca = 0
+
+for poczatek, koniec in czasStr:
+    pCzas = czas(poczatek)
+    kCzas = czas(koniec)
+    praca += kCzas - pCzas
+
+    print(round(praca, 2))
+
+
+
+
+
+
